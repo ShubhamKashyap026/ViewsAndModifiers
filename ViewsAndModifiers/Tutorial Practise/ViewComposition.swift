@@ -8,8 +8,30 @@
 import SwiftUI
 
 struct ViewComposition: View {
+    // Properties
+    
+    // Body
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(spacing: 10) {
+            CapsuleText(text: "First one")
+            CapsuleText(text: "Second one")
+        }
+    }
+}
+
+// helps in breaking the code into smaller section
+struct CapsuleText: View {
+    // Properties
+    var text: String
+
+    // body
+    var body: some View {
+        Text(text)
+            .font(.largeTitle)
+            .padding()
+            .foregroundStyle(.white)
+            .background(.blue)
+            .clipShape(.capsule)
     }
 }
 

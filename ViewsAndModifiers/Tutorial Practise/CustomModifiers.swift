@@ -9,7 +9,64 @@ import SwiftUI
 
 struct CustomModifiers: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Color.blue
+                .frame(width: 400, height: 400)
+                .customKashyapWatermark("Shubham Kashyap")
+            
+            Text("Hello, World!")
+                .modifier(Title()) // Using modifier without extension
+            
+            Text("Hello, World but again !")
+                .customTitleStyle() // Using modifier with extension
+
+//            Color.orange
+//                .modifier(Title())
+        }
+    }
+}
+
+
+// Custom Modifiers
+struct Title: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundStyle(.white)
+            .padding()
+            .background(.blue)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
+    }
+}
+
+// Even better approach is using extension
+extension View {
+    func customTitleStyle() -> some View {
+        modifier(Title())
+    }
+}
+
+
+
+// Watermark custom modifier
+struct KashyapWatermark: ViewModifier {
+    var text: String
+    
+    func body(content: Content) -> some View {
+        ZStack(alignment: .bottomTrailing) {
+            content
+            Text(text)
+                .font(.caption)
+                .foregroundStyle(.white)
+                .padding(5)
+                .background(.black)
+        }
+    }
+}
+
+extension View {
+    func customKashyapWatermark(_ string: String) -> some View {
+        modifier(KashyapWatermark(text: string))
     }
 }
 

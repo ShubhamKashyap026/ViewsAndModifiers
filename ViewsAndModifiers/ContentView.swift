@@ -9,7 +9,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ViewComposition()
 }
 
 #Playground {

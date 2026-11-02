@@ -8,9 +8,31 @@
 import SwiftUI
 
 struct SwiftUIUsesSomeView: View {
+//    var body: Text {
+//        get {
+//            return Text("Hello, World!")
+//        }
+    //    }
+    
+//    var body: Text {
+//        return Text("Hello, World!")
+//    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack { // creates tuple view behind the scene
+            Text("Hello, World!")
+            
+            Button("Hello World") {
+                print(type(of: self.body))
+            }
+            .frame(width: 200, height: 200)
+            .background(.red)
+            .foregroundStyle(.white)
+        }
     }
+    
+    
+    
 }
 
 #Preview {
