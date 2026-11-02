@@ -9,7 +9,17 @@ import SwiftUI
 
 struct BehindSwiftUIView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Image(systemName: "globe")
+                .imageScale(.large)
+                .tint(.primary)
+            
+            Text("Welcome to iOS Developement")
+        }
+//        .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.red.gradient)
+
     }
 }
 
